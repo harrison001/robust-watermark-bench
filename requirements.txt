@@ -1,0 +1,19 @@
+# --- core: dwt (encrypted) backend + softbind + bench(dwt) ---------------------
+# This is all you need for robuststego (dwt) and softbind's crypto/RS/vault plumbing.
+invisible-watermark==0.2.0
+reedsolo==1.7.0
+cryptography==50.0.0
+Pillow==12.3.0
+numpy==1.26.4          # pinned <2: coexists with the TrustMark stack below; opencv 5 still works
+PyWavelets==1.8.0      # dwtDctSvd dependency
+
+# --- optional: rivaGan backend / bench --method rivagan ------------------------
+# adds a 32-bit GAN watermark; downloads a small onnx model on first use.
+onnxruntime==1.23.2
+
+# --- optional: TrustMark backend (softbind, bench --method trustmark) ----------
+# survives WhatsApp/Instagram. Pulls torch (~large). Downloads model weights on first use.
+# Install only if you need the resize-robust tier:  pip install -r requirements-trustmark.txt
+# torch==2.13.0
+# torchvision==0.28.0
+# trustmark==0.9.1
